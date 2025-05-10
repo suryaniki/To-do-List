@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <button onclick="switchSection('dashboard')" class="active">Home</button>
+      <button onclick="switchSection('todo')">To-Do List</button>
+      <button onclick="switchSection('calendar')">Calendar</button>
+    </nav>
+    <button onclick="toggleTheme()">🌙</button>
+  </header>
+
+  <div class="container">
+    <section id="dashboard" class="active">
+      <div class="card">
+        <div class="intro">
+          <h2>Welcome to Your To-Do List App</h2>
+          <p>Organize your life, track your tasks, and never miss a deadline! This app helps you manage daily goals with a simple, clean interface and a built-in calendar.</p>
+          <button class="start-btn" onclick="switchSection('todo')">Get Started →</button>
+        </div>
+        <p id="summary">Loading summary...</p>
+      </div>
+    </section>
+
+    <section id="todo">
+      <div class="card">
+        <h2>To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Task title" />
+        <input type="date" id="taskDate" />
+        <button onclick="addTask()">Add Task</button>
+        <ul class="task-list" id="taskList"></ul>
+      </div>
+    </section>
+
+    <section id="calendar">
+      <div class="card">
+        <h2>Calendar</h2>
+        <div class="calendar-days" id="calendarDays"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

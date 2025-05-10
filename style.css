@@ -1,0 +1,176 @@
+:root {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --primary: #4e8cff;
+  --text: #333;
+  --done: #7dd87d;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --bg: #1e1e2f;
+  --card: #2a2a3d;
+  --primary: #82b1ff;
+  --text: #eee;
+  --done: #48c774;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+nav button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav button.active {
+  background: var(--primary);
+  color: white;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #f7f7f7;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.task-list li.done {
+  background: var(--done);
+  text-decoration: line-through;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-days div {
+  padding: 0.5rem;
+  background: var(--card);
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  min-height: 60px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+}
+
+.calendar-days div:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow);
+}
+
+.calendar-days div.has-task {
+  background: var(--primary);
+  color: white;
+}
+
+.calendar-days div .task-title {
+  font-size: 0.6rem;
+  display: block;
+  margin-top: 0.25rem;
+  color: white;
+}
+
+.calendar-days div.clicked {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.intro {
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: slideDown 1s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.start-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.start-btn:hover {
+  transform: scale(1.05);
+}
